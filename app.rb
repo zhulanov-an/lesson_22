@@ -23,7 +23,8 @@ post '/visit' do
 	@user_name = params[:user_name]
 	@user_phone = params[:user_phone]
 	@user_date_visit = params[:user_date_visit]
-	File.open('./public/visit.txt', 'a'){|f| f.write("#{@user_name},#{@user_phone},#{@user_date_visit}\n")}
+	@master = params[:selected_master]
+	File.open('./public/visit.txt', 'a'){|f| f.write("#{@user_name},#{@user_phone},#{@user_date_visit},#{@master}\n")}
 	erb :visit
 end
 
