@@ -26,3 +26,10 @@ post '/visit' do
 	File.open('./public/visit.txt', 'a'){|f| f.write("#{@user_name},#{@user_phone},#{@user_date_visit}\n")}
 	erb :visit
 end
+
+post '/contacts' do
+	@user_mail = params[:user_mail]
+	@user_feedback = params[:user_feedback]
+	File.open('./public/contacts.txt', 'a'){|f| f.write("Begin\n#{'=' * 20}\n#{@user_mail}\n#{@user_feedback}\n#{'=' * 20}\nEnd\n")}
+	erb :contacts
+end
